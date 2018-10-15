@@ -16,10 +16,40 @@
  </div>
 <h4>Address : </h4>
 <ul class="list-group">
-    <a href="{% url 'NewAddress' %}">Add new address</a>
+    <a href="{% url 'NewAddress' Contact.id %}" target="_blank">Add new address</a>
     {% for address in AllAddress %}
   <li class="list-group-item">{{address.Address}}
-    <a role="button" target="_blank" href="#"> Edit Address </a>
+    <a role="button" target="_blank" href="{% url 'UpdateAddress' address.id %}"> Edit Address </a>
+    <a role="button"  href="{% url 'DeleteAddress' address.id Contact.id %}"> Delete Address </a>
+    </li>
+   
+    {% endfor %}
+  
+</ul>
+
+<h4>Phones : </h4>
+<ul class="list-group">
+    <a href="{% url 'NewPhone' Contact.id %}" target="_blank"> Add new Phone</a>
+    {% for phone in AllPhones %}
+  <li class="list-group-item">{{phone.Area_code}} -{{phone.Number}}
+    <a role="button" target="_blank" href="{% url 'UpdatePhone' phone.id %}"> Edit Phone </a>
+    <a role="button"  href="{% url 'DeletePhone' phone.id  Contact.id %}"> Delete Phone </a>
+
+    </li>
+   
+    {% endfor %}
+  
+</ul>
+
+
+<h4>Dates : </h4>
+<ul class="list-group">
+    <a href="{% url 'NewDate' Contact.id %}" target="_blank">Add new Date</a>
+    {% for date in AllDates %}
+  <li class="list-group-item">{{date.Date}}
+    <a role="button" target="_blank" href="{% url 'UpdateDate' date.id %}"> Edit Date </a>
+        <a role="button"  href="{% url 'DeleteDate' date.id Contact.id %}"> Delete Date </a>
+
     </li>
    
     {% endfor %}

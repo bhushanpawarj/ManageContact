@@ -16,9 +16,11 @@
          <span>(Addresses : </span>
         {% with contact.addresses.all as addresses %}
              {% for add in addresses %}
+                {% if add.Address  %}
                <span>  {{ add.Address }} , </span>
-                {% empty %}
-                  ''
+                {% else %}
+                  <p></p>
+                {% endif %}
                 {% endfor %}
          {% endwith %}
         <span>)</span>
@@ -27,7 +29,7 @@
          <span>(Phones : </span>
         {% with contact.phones.all as phones %}
              {% for phone in phones %}
-               <span>  {{ add.Area_code }} - {{ add.Number}}, </span>
+               <span>  {{ phone.Area_code }} - {{ phone.Number}}, </span>
                 {% empty %}
                   ''
                 {% endfor %}

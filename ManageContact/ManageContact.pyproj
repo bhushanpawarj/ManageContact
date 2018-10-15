@@ -79,6 +79,7 @@
     <Content Include="MainModule\static\MainModule\scripts\modernizr-2.6.2.js" />
     <Content Include="MainModule\static\MainModule\scripts\respond.js" />
     <Content Include="MainModule\static\MainModule\scripts\respond.min.js" />
+    <Content Include="MainModule\templates\MainModule\AddNew.html" />
     <Content Include="MainModule\templates\MainModule\ViewFullContact.html" />
     <Content Include="MainModule\templates\MainModule\index.html" />
     <Content Include="MainModule\templates\MainModule\layout.html" />

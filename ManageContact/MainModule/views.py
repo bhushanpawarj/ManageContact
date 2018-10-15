@@ -74,26 +74,35 @@ def DeleteContact(request,pk):
 
 
 
-def NewAddress(request):
-    form=AddressForm(request.POST or None )
+def NewAddress(request,ContactId):
+    add=Address()
+    contact=Contacts.objects.get(pk=ContactId)
+    add.Contact_id=contact
+    form=AddressForm(request.POST or None ,instance=add)
     if form.is_valid():
         form.save()
         return redirect('home')
-    return render(request ,'MainModule/ViewFullContact.html', {'form' : form })
+    return render(request ,'MainModule/AddNew.html', {'form' : form })
 
-def NewPhone(request):
-    form=PhoneForm(request.POST or None )
+def NewPhone(request,ContactId):
+    ph=Phone()
+    contact=Contacts.objects.get(pk=ContactId)
+    ph.Contact_id=contact
+    form=PhoneForm(request.POST or None ,instance=ph)
     if form.is_valid():
         form.save()
         return redirect('home')
-    return render(request ,'MainModule/ViewFullContact.html', {'form' : form })
+    return render(request ,'MainModule/AddNew.html', {'form' : form })
 
-def NewDate(request):
-    form=DateForm(request.POST or None )
+def NewDate(request,ContactId):
+    dt=Date()
+    contact=Contacts.objects.get(pk=ContactId)
+    dt.Contact_id=contact
+    form=DateForm(request.POST or None ,instance=dt)
     if form.is_valid():
         form.save()
         return redirect('home')
-    return render(request ,'MainModule/ViewFullContact.html', {'form' : form })
+    return render(request ,'MainModule/AddNew.html', {'form' : form })
 
 
 def UpdateAddress(request,pk):
@@ -101,21 +110,21 @@ def UpdateAddress(request,pk):
     form=AddressForm(request.POST or None ,instance=Add)
     if form.is_valid():
         form.save()
-    return render(request ,'MainModule/AddOrUpdateAddress.html', {'form' : form ,'Address':Add})
+    return render(request ,'MainModule/AddNew.html', {'form' : form ,'Address':Add})
 
 def UpdatePhone(request,pk):   
     Ph=Phone.objects.get(id=pk)
     form=PhoneForm(request.POST or None ,instance=Ph)
     if form.is_valid():
         form.save()
-    return render(request ,'MainModule/AddOrUpdateAddress.html', {'form' : form ,'Address':Ph})
+    return render(request ,'MainModule/AddNew.html', {'form' : form ,'Address':Ph})
 def UpdateDate(request,pk):
     
     Dt=Date.objects.get(id=pk)
     form=PhoneForm(request.POST or None ,instance=Dt)
     if form.is_valid():
         form.save()
-    return render(request ,'MainModule/AddOrUpdateAddress.html', {'form' : form ,'Address':Dt})
+    return render(request ,'MainModule/AddNew.html', {'form' : form ,'Address':Dt})
 
 def DeleteAddress(request,pk=None,ContactId=None):
     Add=Address.objects.get(id=pk)
@@ -125,7 +134,7 @@ def DeleteAddress(request,pk=None,ContactId=None):
     AllAddress=Address.objects.filter(Contact_id=ContactId)
     AllPhones=Phone.objects.filter(Contact_id=ContactId)
     AllDates=Date.objects.filter(Contact_id=ContactId)
-    return render(request ,'MainModule/ContactEdit.html', {'form' : form ,'Contact':Contact,'AllAddress' : AllAddress ,'AllPhones':AllPhones,'AllDates':AllDates })
+    return render(request ,'MainModule/ViewFullContact.html', {'form' : form ,'Contact':Contact,'AllAddress' : AllAddress ,'AllPhones':AllPhones,'AllDates':AllDates })
 
 
 def DeletePhone(request,pk=None,ContactId=None):
@@ -136,7 +145,7 @@ def DeletePhone(request,pk=None,ContactId=None):
     AllAddress=Address.objects.filter(Contact_id=ContactId)
     AllPhones=Phone.objects.filter(Contact_id=ContactId)
     AllDates=Date.objects.filter(Contact_id=ContactId)
-    return render(request ,'MainModule/ContactEdit.html', {'form' : form ,'Contact':Contact,'AllAddress' : AllAddress ,'AllPhones':AllPhones,'AllDates':AllDates })
+    return render(request ,'MainModule/ViewFullContact.html', {'form' : form ,'Contact':Contact,'AllAddress' : AllAddress ,'AllPhones':AllPhones,'AllDates':AllDates })
 
 def DeleteDate(request,pk=None,ContactId=None):
     Dt=Date.objects.get(id=pk)
@@ -146,7 +155,7 @@ def DeleteDate(request,pk=None,ContactId=None):
     AllAddress=Address.objects.filter(Contact_id=ContactId)
     AllPhones=Phone.objects.filter(Contact_id=ContactId)
     AllDates=Date.objects.filter(Contact_id=ContactId)
-    return render(request ,'MainModule/ContactEdit.html', {'form' : form ,'Contact':Contact,'AllAddress' : AllAddress,'AllPhones':AllPhones,'AllDates':AllDates  })
+    return render(request ,'MainModule/ViewFullContact.html', {'form' : form ,'Contact':Contact,'AllAddress' : AllAddress,'AllPhones':AllPhones,'AllDates':AllDates  })
 
 
 

@@ -21,15 +21,15 @@ urlpatterns = [
   
     url(r'^UpdatePhone/(?P<pk>\d+)/$', MainModule.views.UpdatePhone, name='UpdatePhone'),
     url(r'^DeletePhone/(?P<pk>\d+)/(?P<ContactId>\d+)$', MainModule.views.DeletePhone, name='DeletePhone'),
-    url(r'^NewPhone/$', MainModule.views.NewPhone, name='NewPhone'),
+    url(r'^NewPhone/(?P<ContactId>\d+)$', MainModule.views.NewPhone, name='NewPhone'),
 
     url(r'^UpdateAddress/(?P<pk>\d+)/$', MainModule.views.UpdateAddress, name='UpdateAddress'),
     url(r'^DeleteAddress/(?P<pk>\d+)/(?P<ContactId>\d+)$', MainModule.views.DeleteAddress, name='DeleteAddress'),
-    url(r'^NewAddress/$', MainModule.views.NewAddress, name='NewAddress'),
+    url(r'^NewAddress/(?P<ContactId>\d+)$', MainModule.views.NewAddress, name='NewAddress'),
 
     url(r'^UpdateDate/(?P<pk>\d+)/$', MainModule.views.UpdateDate, name='UpdateDate'),
     url(r'^Delete/(?P<pk>\d+)/(?P<ContactId>\d+)$', MainModule.views.DeleteDate, name='DeleteDate'),
-    url(r'^NewDate/$', MainModule.views.NewDate, name='NewDate'),
+    url(r'^NewDate/(?P<ContactId>\d+)$', MainModule.views.NewDate, name='NewDate'),
 
     url(r'^contact$', MainModule.views.contact, name='contact'),
     url(r'^about$', MainModule.views.about, name='about'),
