@@ -1,3 +1,3 @@
-"""
-Package for ManageContact.
-"""
+import pymysql
+
+pymysql.install_as_MySQLdb()

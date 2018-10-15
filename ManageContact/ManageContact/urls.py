@@ -5,9 +5,8 @@ Definition of urls for ManageContact.
 from datetime import datetime
 from django.conf.urls import url
 import django.contrib.auth.views
-
-import app.forms
-import app.views
+import MainModule.forms
+import MainModule.views
 
 # Uncomment the next lines to enable the admin:
 # from django.conf.urls import include
@@ -15,15 +14,30 @@ import app.views
 # admin.autodiscover()
 
 urlpatterns = [
-    # Examples:
-    url(r'^$', app.views.home, name='home'),
-    url(r'^contact$', app.views.contact, name='contact'),
-    url(r'^about$', app.views.about, name='about'),
+    url(r'^$', MainModule.views.home, name='home'),
+    url(r'^ViewFullContact/(?P<pk>\d+)/$', MainModule.views.ViewFullContact, name='ViewFullContact'),
+    url(r'^New$', MainModule.views.CreateContact, name='NewContact'),
+    url(r'^DeleteContact/(?P<pk>\d+)/$', MainModule.views.DeleteContact, name='DeleteContact'),
+  
+    url(r'^UpdatePhone/(?P<pk>\d+)/$', MainModule.views.UpdatePhone, name='UpdatePhone'),
+    url(r'^DeletePhone/(?P<pk>\d+)/(?P<ContactId>\d+)$', MainModule.views.DeletePhone, name='DeletePhone'),
+    url(r'^NewPhone/$', MainModule.views.NewPhone, name='NewPhone'),
+
+    url(r'^UpdateAddress/(?P<pk>\d+)/$', MainModule.views.UpdateAddress, name='UpdateAddress'),
+    url(r'^DeleteAddress/(?P<pk>\d+)/(?P<ContactId>\d+)$', MainModule.views.DeleteAddress, name='DeleteAddress'),
+    url(r'^NewAddress/$', MainModule.views.NewAddress, name='NewAddress'),
+
+    url(r'^UpdateDate/(?P<pk>\d+)/$', MainModule.views.UpdateDate, name='UpdateDate'),
+    url(r'^Delete/(?P<pk>\d+)/(?P<ContactId>\d+)$', MainModule.views.DeleteDate, name='DeleteDate'),
+    url(r'^NewDate/$', MainModule.views.NewDate, name='NewDate'),
+
+    url(r'^contact$', MainModule.views.contact, name='contact'),
+    url(r'^about$', MainModule.views.about, name='about'),
     url(r'^login/$',
         django.contrib.auth.views.login,
         {
-            'template_name': 'app/login.html',
-            'authentication_form': app.forms.BootstrapAuthenticationForm,
+            'template_name': 'MainModule/login.html',
+            'authentication_form': MainModule.forms.BootstrapAuthenticationForm,
             'extra_context':
             {
                 'title': 'Log in',

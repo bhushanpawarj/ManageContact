@@ -1,0 +1,57 @@
+{% extends "MainModule/layout.html" %}
+
+{% block content %}
+
+<div >
+   <h2> List of All the Contacts </h2>
+    <form class="form-inline" style="padding-top:3%; padding-bottom:3%" action="" method="GET">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="q" value="{{request.GET.q}}">
+      <button class="btn btn-outline-success " type="submit">Search</button>
+    </form>
+    <a href="{%url 'NewContact' %}">Add New Contact</a>
+
+    <ul class="list-group">
+        {% for contact in Contacts %}
+          <li class="list-group-item">{{ contact.Fname}} {{contact.Lname }} 
+         <span>(Addresses : </span>
+        {% with contact.addresses.all as addresses %}
+             {% for add in addresses %}
+               <span>  {{ add.Address }} , </span>
+                {% empty %}
+                  ''
+                {% endfor %}
+         {% endwith %}
+        <span>)</span>
+
+
+         <span>(Phones : </span>
+        {% with contact.phones.all as phones %}
+             {% for phone in phones %}
+               <span>  {{ add.Area_code }} - {{ add.Number}}, </span>
+                {% empty %}
+                  ''
+                {% endfor %}
+         {% endwith %}
+        <span>)</span>
+
+
+        <span>)</span>
+
+        <span>(Dates : </span>
+        {% with contact.dates.all as dates %}
+             {% for date in dates %}
+               <span>  {{ date.Date }} , </span>
+                {% empty %}
+                  ''
+                {% endfor %}
+         {% endwith %}
+        <span>)</span>
+
+          <a role="button" target="_blank" href="{% url 'ViewFullContact' contact.id  %}"> View Full </a>
+        </li>
+      
+        {% endfor %}
+</ul>
+ </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+﻿{% extends "MainModule/layout.html" %}
+
+{% block content %}
+
+<div >
+    <form method="post">
+        {% csrf_token %}
+{{form}}    
+<button  type="submit" >Save</button>
+        
+        {% if Contact %}
+
+            <a role="button" href="{% url 'DeleteContact' Contact.id %}"> Delete Contact</a>
+        {% endif %}
+        </form>
+ </div>
+<h4>Address : </h4>
+<ul class="list-group">
+    <a href="{% url 'NewAddress' %}">Add new address</a>
+    {% for address in AllAddress %}
+  <li class="list-group-item">{{address.Address}}
+    <a role="button" target="_blank" href="#"> Edit Address </a>
+    </li>
+   
+    {% endfor %}
+  
+</ul>
+{% endblock %}

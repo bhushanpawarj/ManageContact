@@ -30,61 +30,60 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app\forms.py" />
-    <Compile Include="app\models.py" />
-    <Compile Include="app\tests.py" />
-    <Compile Include="app\views.py" />
-    <Compile Include="app\__init__.py" />
-    <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="MainModule\forms.py" />
     <Compile Include="manage.py" />
+    <Compile Include="MainModule\admin.py" />
+    <Compile Include="MainModule\apps.py" />
+    <Compile Include="MainModule\migrations\__init__.py" />
+    <Compile Include="MainModule\models.py" />
+    <Compile Include="MainModule\tests.py" />
+    <Compile Include="MainModule\views.py" />
+    <Compile Include="MainModule\__init__.py" />
     <Compile Include="ManageContact\__init__.py" />
     <Compile Include="ManageContact\settings.py" />
     <Compile Include="ManageContact\urls.py" />
     <Compile Include="ManageContact\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\" />
-    <Folder Include="app\migrations\" />
-    <Folder Include="app\static\" />
-    <Folder Include="app\static\app\" />
-    <Folder Include="app\static\app\content\" />
-    <Folder Include="app\static\app\fonts\" />
-    <Folder Include="app\static\app\scripts\" />
-    <Folder Include="app\templates\" />
-    <Folder Include="app\templates\app\" />
+    <Folder Include="MainModule\static\" />
+    <Folder Include="MainModule\static\MainModule\" />
+    <Folder Include="MainModule\static\MainModule\content\" />
+    <Folder Include="MainModule\static\MainModule\fonts\" />
+    <Folder Include="MainModule\static\MainModule\scripts\" />
     <Folder Include="ManageContact\" />
+    <Folder Include="MainModule\" />
+    <Folder Include="MainModule\migrations\" />
+    <Folder Include="MainModule\templates\" />
+    <Folder Include="MainModule\templates\MainModule\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MainModule\static\MainModule\content\bootstrap.css" />
+    <Content Include="MainModule\static\MainModule\content\bootstrap.min.css" />
+    <Content Include="MainModule\static\MainModule\content\site.css" />
+    <Content Include="MainModule\static\MainModule\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="MainModule\static\MainModule\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="MainModule\static\MainModule\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="MainModule\static\MainModule\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="MainModule\static\MainModule\scripts\_references.js" />
+    <Content Include="MainModule\static\MainModule\scripts\bootstrap.js" />
+    <Content Include="MainModule\static\MainModule\scripts\bootstrap.min.js" />
+    <None Include="MainModule\static\MainModule\scripts\jquery.validate-vsdoc.js" />
+    <None Include="MainModule\static\MainModule\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="MainModule\static\MainModule\scripts\jquery-1.10.2.js" />
+    <Content Include="MainModule\static\MainModule\scripts\jquery-1.10.2.min.js" />
+    <Content Include="MainModule\static\MainModule\scripts\jquery-1.10.2.min.map" />
+    <Content Include="MainModule\static\MainModule\scripts\jquery.validate.js" />
+    <Content Include="MainModule\static\MainModule\scripts\jquery.validate.min.js" />
+    <Content Include="MainModule\static\MainModule\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="MainModule\static\MainModule\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="MainModule\static\MainModule\scripts\modernizr-2.6.2.js" />
+    <Content Include="MainModule\static\MainModule\scripts\respond.js" />
+    <Content Include="MainModule\static\MainModule\scripts\respond.min.js" />
+    <Content Include="MainModule\templates\MainModule\ViewFullContact.html" />
+    <Content Include="MainModule\templates\MainModule\index.html" />
+    <Content Include="MainModule\templates\MainModule\layout.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
-    <Content Include="app\static\app\content\bootstrap.css" />
-    <Content Include="app\static\app\content\bootstrap.min.css" />
-    <Content Include="app\static\app\content\site.css" />
-    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="app\static\app\scripts\bootstrap.js" />
-    <Content Include="app\static\app\scripts\bootstrap.min.js" />
-    <Content Include="app\static\app\scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
-    <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
-    <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
-    <Content Include="app\static\app\scripts\jquery.validate-vsdoc.js" />
-    <Content Include="app\static\app\scripts\jquery.validate.js" />
-    <Content Include="app\static\app\scripts\jquery.validate.min.js" />
-    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
-    <Content Include="app\static\app\scripts\respond.js" />
-    <Content Include="app\static\app\scripts\respond.min.js" />
-    <Content Include="app\static\app\scripts\_references.js" />
-    <Content Include="app\templates\app\about.html" />
-    <Content Include="app\templates\app\contact.html" />
-    <Content Include="app\templates\app\index.html" />
-    <Content Include="app\templates\app\layout.html" />
-    <Content Include="app\templates\app\login.html" />
-    <Content Include="app\templates\app\loginpartial.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">
